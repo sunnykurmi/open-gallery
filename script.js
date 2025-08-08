@@ -1,14 +1,5 @@
 gsap.set(".about_img_1", { zIndex: 2 })
-gsap.to(".about_img_1",{
-    scrollTrigger:{
-        trigger:".about_txt_box_1",
-        start:"top bottom",
-        scrub:true,
-        end:"top top",
-        // markers:true
-    },
-    scale:.9
-})
+
 gsap.to(".about_img_2",{
     scrollTrigger:{
         trigger:".about_txt_box_2",

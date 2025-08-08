@@ -73,7 +73,7 @@ body {
   .about_txt_box_1_inner h1,
   .about_txt_box_2_inner h1,
   .about_txt_box_3_inner h1 {
-    font-size: 2.5rem;
+    font-size: 4rem !important;
   }
 
   .about_txt_box_1_inner,

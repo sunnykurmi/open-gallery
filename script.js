@@ -1,147 +1,168 @@
 gsap.registerPlugin(ScrollTrigger);
 
 const lenis = new Lenis({
-  smooth: true,
-  lerp: 0.1,
+    smooth: true,
+    lerp: 0.1,
+    duration: 2
 });
 
 lenis.on("scroll", ScrollTrigger.update);
 
 function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
+    lenis.raf(time);
+    requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
-
-// Now your gsap.to / fromTo animations...
-
-
-gsap.set(".about_img_1", { zIndex: 2 })
-
-gsap.to(".about_img_2 img",{
-    scrollTrigger:{
-        trigger:".about_txt_box_2",
-        start:"top bottom",
-        scrub:true,
-        end:"top top",
-        // markers:true
-    },
-    scale:.9
-})
-gsap.to(".about_img_3 img",{
-    scrollTrigger:{
-        trigger:".about_txt_box_3",
-        start:"top bottom",
-        scrub:true,
-        end:"top top",
-        // markers:true
-    },
-    scale:.9
-})
-gsap.to(".about_img_2",{
-    scrollTrigger:{
-        trigger:".about_txt_box_1",
-        start:"top top",
-        scrub:true,
-        end:"top top",
-        // markers:true
-    },
-    zIndex: 3,
-    duration: 0.01,
-})
-gsap.to(".about_img_3",{
-    scrollTrigger:{
-        trigger:".about_txt_box_2",
-        start:"top top",
-        scrub:true,
-        end:"top top",
-        // markers:true
-    },
-    zIndex: 3,
-    duration: 0.01,
-})
-gsap.to(".about_img_4",{
-    scrollTrigger:{
-        trigger:".about_txt_box_3",
-        start:"top top",
-        scrub:true,
-        end:"top top",
-        // markers:true
-    },
-    zIndex: 3,
-    duration: 0.01,
-})
+gsap.registerPlugin(ScrollTrigger);
 
 
+////// 1st section
+ScrollTrigger.create({
+    trigger: ".sec_1",
+    start: "top top",
+    end: "bottom 50%",
+    scrub: true,
+    // markers: true,
+    onUpdate: (self) => {
+        const progress = self.progress;
 
-gsap.fromTo(".about_img_2 img",{
-    scale:1.1},{
-    scrollTrigger:{
-        trigger:".about_txt_box_1",
-        start:"bottom bottom",
-        scrub:true,
-        // markers:true
-    },
-    scale:1,
-})
-gsap.fromTo(".about_img_3 img",{
-    scale:1.1},{
-    scrollTrigger:{
-        trigger:".about_txt_box_2",
-        start:"bottom bottom",
-        scrub:true,
-        // markers:true
-    },
-    scale:1,
-})
-gsap.fromTo(".about_img_4 img",{
-    scale:1.1},{
-    scrollTrigger:{
-        trigger:".about_txt_box_3",
-        start:"bottom bottom",
-        scrub:true,
-        // markers:true
-    },
-    scale:1,
-})
+        // Clip path progress (bottom → top)
+        const topY = 100 - (100 * progress);
+        gsap.set(".clippy_1", {
+            clipPath: `polygon(0 ${topY}%, 100% ${topY}%, 100% 100%, 0% 100%)`,
+            webkitClipPath: `polygon(0 ${topY}%, 100% ${topY}%, 100% 100%, 0% 100%)`
+        });
+
+        
+        const scaleVal = 1.1 - (0.1 * progress);
+        gsap.set(".clippy_1 img", { scale: scaleVal });
+    }
+});
+
+
+ScrollTrigger.create({
+    trigger: ".sec_1",
+    start: "bottom center",
+    end: "bottom 0%",
+    scrub: true,
+    //   markers: true,
+    onUpdate: (self) => {
+        const progress = self.progress;
+        const topY = 100 - (100 * progress);
+
+        gsap.set(".clippy_1", {
+            clipPath: `polygon(0 0, 100% 0, 100% ${topY}%, 0% ${topY}%)`,
+            webkitClipPath: `polygon(0 0, 100% 0, 100% ${topY}%, 0% ${topY}%)`
+        });
+
+        
+        const scaleVal = 1 - (0.1 * progress);
+        gsap.set(".clippy_1 img", { scale: scaleVal });
+    }
+});
 
 
 
 
+/////2nd section
+ScrollTrigger.create({
+    trigger: ".sec_2",
+    start: "top top",
+    end: "bottom 50%",
+    scrub: true,
+    //   markers: true,
+    onUpdate: (self) => {
+        const progress = self.progress;
+        const topY = 100 - (100 * progress);
 
-gsap.fromTo(".about_txt_box_1_inner",{
-    y:-180
-},{
-    scrollTrigger:{
-        trigger:".about_txt_box_1",
-        start:"top bottom",
-        scrub:true,
-        end:"bottom top",
-        // markers:true
-    },
-  y:100
-})
-gsap.fromTo(".about_txt_box_2_inner",{
-    y:-150
-},{
-    scrollTrigger:{
-        trigger:".about_txt_box_2",
-        start:"top bottom",
-        scrub:true,
-        end:"bottom top",
-        // markers:true
-    },
-  y:100
-})
-gsap.fromTo(".about_txt_box_3_inner",{
-    y:-120
-},{
-    scrollTrigger:{
-        trigger:".about_txt_box_3",
-        start:"top bottom",
-        scrub:true,
-        end:"bottom top",
-        // markers:true
-    },
-  y:70
-})
+        gsap.set(".clippy_2", {
+            clipPath: `polygon(0 ${topY}%, 100% ${topY}%, 100% 100%, 0% 100%)`,
+            webkitClipPath: `polygon(0 ${topY}%, 100% ${topY}%, 100% 100%, 0% 100%)`
+        });
+        
+        const scaleVal = 1.1 - (0.1 * progress);
+        gsap.set(".clippy_2 img", { scale: scaleVal });
+    }
+});
+
+ScrollTrigger.create({
+    trigger: ".sec_2",
+    start: "bottom center",
+    end: "bottom 0%",
+    scrub: true,
+    //   markers: true,
+    onUpdate: (self) => {
+        const progress = self.progress;
+        const topY = 100 - (100 * progress);
+
+        gsap.set(".clippy_2", {
+            clipPath: `polygon(0 0, 100% 0, 100% ${topY}%, 0% ${topY}%)`,
+            webkitClipPath: `polygon(0 0, 100% 0, 100% ${topY}%, 0% ${topY}%)`
+        });
+        
+        const scaleVal = 1 - (0.1 * progress);
+        gsap.set(".clippy_2 img", { scale: scaleVal });
+    }
+});
+
+
+
+///3rd section
+ScrollTrigger.create({
+    trigger: ".sec_3",
+    start: "top top",
+    end: "bottom 50%",
+    scrub: true,
+    //   markers: true,
+    onUpdate: (self) => {
+        const progress = self.progress;
+        const topY = 100 - (100 * progress);
+
+        gsap.set(".clippy_3", {
+            clipPath: `polygon(0 ${topY}%, 100% ${topY}%, 100% 100%, 0% 100%)`,
+            webkitClipPath: `polygon(0 ${topY}%, 100% ${topY}%, 100% 100%, 0% 100%)`
+        });
+        
+        const scaleVal = 1.1 - (0.1 * progress);
+        gsap.set(".clippy_3 img", { scale: scaleVal });
+    }
+});
+
+ScrollTrigger.create({
+    trigger: ".sec_3",
+    start: "bottom center",
+    end: "bottom 0%",
+    scrub: true,
+    // markers: true,
+    onUpdate: (self) => {
+        const progress = self.progress;
+        const topY = 100 - (100 * progress);
+
+        gsap.set(".clippy_3", {
+            clipPath: `polygon(0 0, 100% 0, 100% ${topY}%, 0% ${topY}%)`,
+            webkitClipPath: `polygon(0 0, 100% 0, 100% ${topY}%, 0% ${topY}%)`
+        });
+        
+        const scaleVal = 1 - (0.1 * progress);
+        gsap.set(".clippy_3 img", { scale: scaleVal });
+    }
+});
+
+let mm = gsap.matchMedia();
+
+mm.add("(min-width: 768px)", () => {
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".sec_4",
+      start: "top top",
+      end: "+=1500",
+      scrub: true,
+      pin: true,
+      // markers: true,
+    }
+  });
+
+  tl.to(".sec_4_img_2", { top: 0 })
+    .to(".sec_4_img_3", { top: 0 });
+});
+

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Haffer;
+  src: url(./6700cdaf5310b606b60e8ff2_HafferTRIAL-Light.woff2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +14,7 @@ body {
   height: 100%;
   background-color: #f0edde;
   color: #8c3c20;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: haffer;
 }
 .inside_txt_box {
   width: 100%;
@@ -23,11 +28,12 @@ body {
 .inside_txt_box h1 {
   font-size: 1rem;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 @media (min-width: 1024px) {
   .inside_txt_box h1 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 }
 .inside_txt_box p {
@@ -50,6 +56,22 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.about_txt_box_1 {
+  width: 100%;
+  background-color: #f0edde;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  justify-content: center;
+  height: 100vh;
+}
+.about_txt_box_1 h1 {
+  margin-bottom: 4rem;
+}
+.about_txt_box_1_inner{
+  width: 90%;
 }
 
 .sec_1,
@@ -153,37 +175,46 @@ body {
     height: 100% !important;
   }
 }
-.sec_4_left h1 {
+.sec_4_left h1,
+.about_txt_box_1_inner h1 {
   font-size: 1.75rem;
   text-transform: uppercase;
   font-weight: 500;
 }
 
-.sec_4_left p {
+.sec_4_left p,
+.about_txt_box_1_inner p {
   font-size: 0.75rem;
   font-weight: 400;
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 768px) {
-  .sec_4_left h1 {
+  .sec_4_left h1,
+  .about_txt_box_1_inner h1 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 500;
   }
-  .sec_4_left p {
+  .sec_4_left p,
+  .about_txt_box_1_inner p {
     font-size: 0.75rem;
     font-weight: 400;
+    margin-bottom: 0.5rem;
   }
 }
 @media (min-width: 1024px) {
-  .sec_4_left h1 {
+  .sec_4_left h1,
+  .about_txt_box_1_inner h1 {
     font-size: 4rem;
     text-transform: uppercase;
     font-weight: 500;
   }
-  .sec_4_left p {
+  .sec_4_left p,
+  .about_txt_box_1_inner p {
     font-size: 1.2rem;
     font-weight: 400;
+    margin-bottom: 1.25rem;
   }
 }
 

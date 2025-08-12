@@ -2,13 +2,16 @@
   font-family: Haffer;
   src: url(./6700cdaf5310b606b60e8ff2_HafferTRIAL-Light.woff2);
 }
+@font-face {
+  font-family: Haffer_regular;
+  src: url(./66e7f611e772be089ba1d02f_Haffer-TRIAL-Regular.woff2);
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   overflow-x: hidden;
   height: 100%;
@@ -37,12 +40,15 @@ body {
   }
 }
 .inside_txt_box p {
-  font-size: 0.5rem;
+  font-size: 3vw;
+  line-height: 3.5vw;
+  font-family: Haffer_regular;
   text-transform: uppercase;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .inside_txt_box p {
-    font-size: 0.75rem;
+    font-size: 1.1vw;
+    line-height: 1.3vw;
   }
 }
 
@@ -70,7 +76,7 @@ body {
 .about_txt_box_1 h1 {
   margin-bottom: 4rem;
 }
-.about_txt_box_1_inner{
+.about_txt_box_1_inner {
   width: 90%;
 }
 
@@ -81,6 +87,7 @@ body {
   position: relative;
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -90,8 +97,17 @@ body {
 .sec_2 h1,
 .sec_3 h1 {
   text-transform: uppercase;
-  font-size: 1.75rem;
-  line-height: 1.75rem;
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.sec_1 p,
+.sec_2 p,
+.sec_3 p {
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1rem;
   font-weight: 500;
 }
 @media (min-width: 768px) {
@@ -100,7 +116,16 @@ body {
   .sec_3 h1 {
     font-size: 2rem;
     line-height: 2rem;
+    margin-bottom: 0.5rem;
     text-transform: uppercase;
+    font-weight: 500;
+  }
+  .sec_1 p,
+  .sec_2 p,
+  .sec_3 p {
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1rem;
     font-weight: 500;
   }
 }
@@ -108,9 +133,18 @@ body {
   .sec_1 h1,
   .sec_2 h1,
   .sec_3 h1 {
-    font-size: 4rem;
-    line-height: 4rem;
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 0.75rem;
     text-transform: uppercase;
+    font-weight: 500;
+  }
+  .sec_1 p,
+  .sec_2 p,
+  .sec_3 p {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
     font-weight: 500;
   }
 }
@@ -206,7 +240,8 @@ body {
 @media (min-width: 1024px) {
   .sec_4_left h1,
   .about_txt_box_1_inner h1 {
-    font-size: 4rem;
+    font-size: 3rem;
+    line-height: 3rem;
     text-transform: uppercase;
     font-weight: 500;
   }
